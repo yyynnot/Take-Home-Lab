@@ -1,0 +1,304 @@
+Task1: Check the Physical Ports:
+CallCenter-28#show power inline 
+PowerSupply   SlotNum.   Maximum   Allocated       Status
+-----------   --------   -------   ---------       ------
+INT-PS           0        88.000    28.800          PS GOOD
+Interface   Config   Device   Powered    PowerAllocated
+---------   ------   ------   -------    -------------- 
+Fa0/1/0     auto     Unknown  Off        0.000 Watts  
+Fa0/1/1     auto     IEEE-2   On         7.000 Watts  
+Fa0/1/2     auto     Unknown  Off        0.000 Watts  
+Fa0/1/3     auto     IEEE-2   On         6.400 Watts  
+Fa0/1/4     auto     Unknown  Off        0.000 Watts  
+Fa0/1/5     auto     IEEE-4   On        15.400 Watts  
+Fa0/1/6     auto     Unknown  Off        0.000 Watts  
+Fa0/1/7     auto     Unknown  Off        0.000 Watts 
+
+OSI layer explation:
+
+TASK2: VLAN checking and configuration:
+Why do Companies Need Vlan: "chatgpt"
+enterprise: show vlan brief
+homelab: show vlan-switch
+We need at least 4 VLANS and 4 Switched Vlan Interface:
+
+config t
+vlan 1
+name default
+vlan 10
+name RIVANWIFI
+vlan 50
+name RIVANVIDEO
+vlan 100
+name RIVANVOIP
+exit
+exit
+show vlan-switch
+
+TASK3: LAN/ethernet ports to VLAN Resigment/Transfer:
+configure terminal
+interface FastEthernet0/1/1 
+ switchport mode access
+ switchport voice vlan 100
+interface FastEthernet0/1/3 
+ switchport mode access
+ switchport access vlan 50
+interface FastEthernet0/1/5 
+ switchport mode access
+ switchport access vlan 10
+interface FastEthernet0/1/7 
+ switchport mode access
+ switchport access vlan 1
+end
+show vlan-switch
+
+TAWK4: SWITCH VLAN INTERFACE: SVI.
+vlan = are folders
+swi  =  are names of folder to find them:
+config t
+Int Vlan 1
+ no shutdown
+ ip add 10.28.1.1 255.255.255.0
+ description DEFAULT
+Int Vlan 10
+ no shutdown
+ ip add 10.28.10.1 255.255.255.0
+ description RIVANWIRELESS
+Int Vlan 50
+ no shutdown
+ ip add 10.28.50.1 255.255.255.0
+ description RIVANCAMS
+Int Vlan 100
+ no shutdown
+ ip add 10.28.100.1 255.255.255.0
+ description RIVANVOIP
+end
+show ip interface brief
+
+TASK5: PREPARING DEVICES FOR DHCP IP ADDRESS
+ASSIGMENT:
+what is dhcp? why important?
+DHCP need MAC address, get the MAC:
+CallCenter-28#sh mac
+CallCenter-28#sh mac-address-table 
+Destination Address  Address Type  VLAN  Destination Port
+-------------------  ------------  ----  --------------------
+0027.0d5e.2562          Self          1     Vlan1
+6899.cda1.c909          Dynamic       1     FastEthernet0/1/1
+a066.10b8.faff          Dynamic       1     FastEthernet0/1/7
+0027.0d5e.2562          Self         10     Vlan10
+881d.fc95.1fa4          Dynamic      10     FastEthernet0/1/5
+001a.070b.4735          Dynamic      50     FastEthernet0/1/3
+0027.0d5e.2562          Self         50     Vlan50
+0027.0d5e.2562          Self        100     Vlan100
+6899.cda1.c909          Dynamic     100     FastEthernet0/1/1
+
+TASK6: PREPARE THE DHCP SERVER:
+config t
+ip dhcp Excluded-add 10.28.1.1 10.28.1.100
+ip dhcp Excluded-add 10.28.10.1 10.28.10.100
+ip dhcp Excluded-add 10.28.50.1 10.28.50.100
+ip dhcp Excluded-add 10.28.100.1 10.28.100.100
+ip dhcp pool DEFAULT
+   network 10.28.1.0 255.255.255.0
+   default-router 10.28.1.1
+   domain-name DEFAULT.COM
+   dns-server 10.28.1.10
+ip dhcp pool RIVANWIFI
+   network 10.28.10.0 255.255.255.0
+   default-router 10.28.10.1
+   domain-name RIVANWIFI.COM
+   dns-server 10.28.1.10
+ip dhcp pool RIVANCAMS
+   network 10.28.50.0 255.255.255.0
+   default-router 10.28.50.1
+   domain-name RIVANCAMS.COM
+   dns-server 10.28.1.10
+ip dhcp pool RIVANVOIP
+   network 10.28.100.0 255.255.255.0
+   default-router 10.28.100.1
+   domain-name RIVANVOIP.COM
+   dns-server 10.28.1.10
+   option 150 ip 10.28.100.1   
+   END
+
+SPECIAL CASE: ip cameras are security
+devices, it needs RESERVED ip address:
+config t
+ip dhcp pool SECURITYCAMERA
+ host 10.28.50.8 255.255.255.0
+ client-identifier 001a.0709.c689
+ default-router 10.28.50.1
+
+Task7: super call center setup:
+config t   
+no telephony-service
+telephony-service
+   no auto assign
+   no auto-reg-ephone
+   max-ephones 5
+   max-dn 20
+   ip source-address 10.28.100.1 port 2000
+   create cnf-files
+ephone-dn 1
+  number 2811
+ephone-dn 2
+  number 2822
+ephone-dn 3
+  number 2833
+ephone-dn 4
+  number 2844
+ephone-dn 5
+  number 2855
+ephone-dn 6
+  number 2866
+ephone-dn 7
+  number 2877
+ephone-dn 8
+  number 2888
+ ephone-dn 9
+   number 2899
+ephone-dn 10
+ number 2898
+Ephone 1
+  Mac-address 6073.5c63.7924
+  type 8945
+  button 1:8 2:7 3:6 4:5
+  restart
+end
+
+
+config t
+dial-peer voice 69 voip
+ service rivanaa out-bound
+ destination-pattern 2869
+ session target ipv4:10.28.100.1
+ incoming called-number 2869
+ dtmf-relay h245-alphanumeric
+ codec g711ulaw
+ no vad
+!
+telephony-service
+ moh "flash:/en_bacd_music_on_hold.au"
+!
+application
+ service rivanaa flash:app-b-acd-aa-3.0.0.2.tcl
+  paramspace english index 1        
+  param number-of-hunt-grps 2
+  param dial-by-extension-option 8
+  param handoff-string rivanaa
+  param welcome-prompt flash:en_bacd_welcome.au
+  paramspace english language en
+  param call-retry-timer 15
+  param service-name rivanqueue
+  paramspace english location flash:
+  param second-greeting-time 60
+  param max-time-vm-retry 2
+  param voice-mail 1234
+  param max-time-call-retry 700
+  param aa-pilot 2869
+ service rivanqueue flash:app-b-acd-3.0.0.2.tcl
+  param queue-len 15
+  param aa-hunt1 2800
+  param aa-hunt2 2877
+  param aa-hunt3 2801
+  param aa-hunt4 2833
+  param queue-manager-debugs 1
+  param number-of-hunt-grps 4
+
+****************************************************************************
+HOW TO FIX THE SHYT 
+config t
+ application
+  no service callqueue flash:app-b-acd-2.1.2.2.tcl
+  no service rivanaa flash:app-b-acd-aa-2.1.2.2.tcl
+!!!THEN PASTE ALL IVR COMMANDS AGAIN
+****************************************************************************
+
+CellPhone to IP phone connection:
+
+SIP CONFIGURATION
+conf t
+ voice service voip
+  allow-connections h323 to sip
+          
+  allow-connections sip to h323
+  allow-connections sip to sip
+  supplementary-service h450.12
+ sip
+   bind control source-interface fa0/0
+   bind media source-interface fa0/0
+   registrar server expires max 600 min 60
+!
+ voice register global
+  mode cme
+  source-address 10.28.100.1 port 5060
+  max-dn 12
+  max-pool 12
+  authenticate register
+  create profile sync
+ voice register dn 1
+   number 2823
+   allow watch
+   name 2823
+ voice register dn 2
+   number 2824
+   allow watch
+   name 2824
+!
+  voice register pool 1
+    id mac bc09.eb53.6eeb
+    number 1 dn 1
+    dtmf-relay sip-notify
+    username 2823 password 2823
+    codec g711ulaw
+!
+  voice register pool 2
+    id mac ____.____.____
+    number 1 dn 2
+    dtmf-relay sip-notify
+    username ____ password ____
+    codec g711ulaw
+	!
+
+
+
+
+
+
+SPECIAL TASKS: AYUSIN LAHAT NG WHITE AP:
+config t
+hostname RivanAP
+username admin privilege 15 secret pass
+line vty 0 14
+login local
+ip routing
+ip route 0.0.0.0 0.0.0.0 10.28.10.1
+Interface BVI1 
+ ip address 10.28.10.3 255.255.255.0
+do wr
+
+fork:
+https://github.com/rivancorp/wifi
+
+
+
+
+
+tar -xtract tftp://10.28.1.10/1861v2021.tar flash:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
