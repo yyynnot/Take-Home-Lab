@@ -1,0 +1,23 @@
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+RivanAP(config)#hostname aironet-28
+aironet-28(config)#dot11 ssid 28-PYthonRobert
+aironet-28(config-ssid)#authentication open
+aironet-28(config-ssid)#authentication key-management wpa
+aironet-28(config-ssid)#wpa-psk ascii C1sc0123
+aironet-28(config-ssid)#guest-mode
+aironet-28(config-ssid)#default Int Dot11Radio 0
+ default bridge-group 1 block-unknown-source <cr> not allowed on Dot11Radio0 interface
+ default bridge-group 1 subscriber-loop-control <cr> not allowed on Dot11Radio0 interface
+%command not allowed, cannot remove bridge-group 1Cannot disable station-role
+
+Interface Dot11Radio0 set to default configuration
+aironet-28(config)#int dot11radio 0
+aironet-28(config-if)#no shut
+aironet-28(config-if)#channel 9
+aironet-28(config-if)#encryption mode ciphers tkip
+aironet-28(config-if)#ssid 28-PYthonRobert
+aironet-28(config-if)#bridge-group 1
+aironet-28(config-if)#exit
+aironet-28(config)#end
+aironet-28#
