@@ -36,11 +36,11 @@ By completing the Rivan Home Labs course, students will:
 | **1. Lab Setup & Cable Management** | Unboxing, safety, cable labeling, device overview |
 | **2. Router Configuration (Cisco 1800)** | Initial setup, IOS basics, interface config, routing protocols |
 | **3. Switching & VLANs** | Switch basics, VLAN configuration, trunking |
-| **7. IP Camera Integration** | Basic IP camera setup, network configuration |
 | **4. IP Telephony** | IP Phone registration, CUCM basics, call flow |
-| **4. IVR & Voice Features** | Setting up basic IVR menus, auto-attendants, call handling logic |
-| **6. Wireless Networking** | Setting up AP using python script |
-| **5. Linphone Integration** | SIP softphone setup, connecting Linphone with CUCM or Asterisk, testing SIP endpoints |
+| **5. IVR & Voice Features** | Setting up basic IVR menus, auto-attendants, call handling logic |
+| **6. Linphone Integration** | SIP softphone setup, connecting Linphone with CUCM or Asterisk, testing SIP endpoints |
+| **7. IP Camera Integration** | Basic IP camera setup, network configuration |
+| **8. Wireless Networking** | Setting up AP using Python script |
 
 ---
 
@@ -335,8 +335,8 @@ conf t
 
 If you encounter hardware issues or need assistance:
 
-- Email: teamrivan@rvci.org
-- Office Hours: Mon–Fri, 9:00 AM - 4:30 PM
-- Website: [Rivan IT](https://rivanit.com/)
-  
+- Email: [`teamrivan@rvci.org`](mailto:teamrivan@rvci.org)
+- Office Hours: Mon–Fri, 9:00 AM – 4:30 PM
+- Website: <a href="https://rivanit.com/" target="_blank">Rivan IT</a>
+
 ---
