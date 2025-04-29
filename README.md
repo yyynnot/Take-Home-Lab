@@ -48,7 +48,7 @@ By completing the Rivan Home Labs course, students will:
 
 - Basic networking knowledge (OSI model, TCP/IP, subnetting).
 - Familiarity with Cisco Packet Tracer or GNS3 is helpful, but not required.
-- Git installed on your pc.
+- Git and Python installed on your pc.
 
 ---
 
@@ -58,6 +58,28 @@ By completing the Rivan Home Labs course, students will:
 2. **Access router CLI** via console cable using:
    - PuTTY(Free) or SecureCRT(License)
 3. **Power on all devices**, verify LED indicators, and begin configuration.
+
+---
+## 📑 Table of Contents
+
+- [📦 Equipment Provided](#-equipment-provided)  
+- [🎯 Course Goals](#-course-goals)  
+- [🛠️ What You'll Learn](#️-what-youll-learn)  
+- [📚 Prerequisites](#-prerequisites)  
+- [🔧 Lab Environment Setup](#-lab-environment-setup)  
+- [💡 Tips for Success](#-tips-for-success)  
+- [📞 Support & Contact](#-support--contact)  
+- [🏁 Ready to Start?](#-ready-to-start)  
+- [🛠️ Task 1 – Setup & Cable Management](#️-task-1--setup--cable-management)  
+- [⚡ Task 2 – Check Power Inline Status](#-task-2-check-power-inline-status)  
+- [🌐 Task 3 – VLAN Checking and Configuration](#-task-3-vlan-checking-and-configuration)  
+- [🔄 Task 4 – LAN/Ethernet Ports to VLAN Assignment](#-task-4-lanethernet-ports-to-vlan-assignment)  
+- [🖧 Task 5 – Switch VLAN Interface (SVI)](#-task-5-switch-vlan-interface-svi)  
+- [🖥️ Task 6 – Prepare the DHCP Server](#️-task-6-prepare-the-dhcp-server)  
+- [🎥 Task 7 – IP Camera Reserved IP](#-task-7-ip-camera-reserved-ip)  
+- [☎️ Task 8 – Super Call Center Setup](#-task-7-super-call-center-setup)  
+- [📱 Task 9 – WiFi Setup using Python](#-task-9---wifi-setup-using-python)  
+- [📞 Task 10 – Cellphone to IP Phone Connection](#-task-10---cellphone-to-ip-phone-connection)
 
 ---
 
