@@ -74,14 +74,6 @@ By completing the Rivan Home Labs course, students will:
 
 ---
 
-## 💡 Tips for Success
-
-- Keep your devices labeled and workspace organized.
-- Practice configurations multiple times.
-- Take screenshots or notes as you work – they’ll help during troubleshooting.
-
----
-
 ## 🏁 Ready to Start?
 
 Let’s get building. Power on your lab and begin with **Task 1 – Setup & Cable Management** 🚀  
@@ -331,6 +323,14 @@ conf t
 
 ---
 
+## 💡 Tips for Success
+
+- Keep your devices labeled and workspace organized.
+- Practice configurations multiple times.
+- Take screenshots or notes as you work – they’ll help during troubleshooting.
+
+---
+
 ## 📞 Support & Contact
 
 If you encounter hardware issues or need assistance:
@@ -338,4 +338,5 @@ If you encounter hardware issues or need assistance:
 - Email: teamrivan@rvci.org
 - Office Hours: Mon–Fri, 9:00 AM - 4:30 PM
 - Website: [Rivan IT](https://rivanit.com/)
+  
 ---
