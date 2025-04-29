@@ -89,19 +89,19 @@ Stay consistent, stay curious. Rivan Home Labs is here to turn theory into real-
 
 Before configuring your devices, ensure all hardware is connected correctly. Refer to the Cabling Instructions PDF for step-by-step guidance on connecting IP Phones, Cameras, and Wireless APs to the appropriate ports. Once everything is set up, power on the devices and proceed with the configuration.
 
-[Basic Setup Guide PDF](Enter.pdf)
+[Basic Setup Guide](BasicSetup.md)
 
 ## 🔧 Task 2: Access console using SecureCRT
 Open SecureCRT and click the quick connect button 
-<br><br>
+<br>
 <img src=https://github.com/user-attachments/assets/b9db7d7d-1623-4759-b294-cb7664901495 width="400">
 <br>
 Select `Serial` as Protocol
-<br><br>
+<br>
 <img src=https://github.com/user-attachments/assets/64ec6f89-c5af-462a-a041-e8106efa2cfe width="400">
 <br>
 For Port select the `USB-SERIAL` and `9600` Baud rate
-<br><br>
+<br>
 ![image](https://github.com/user-attachments/assets/8813ba8d-b855-46e1-b7c8-7121ee029112)
 
 ## ⚡ Task 3: Check Power Inline Status
