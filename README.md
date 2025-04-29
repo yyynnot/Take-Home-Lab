@@ -46,8 +46,9 @@ By completing the Rivan Home Labs course, students will:
 
 ## 📚 Prerequisites
 
-- Basic networking knowledge (OSI model, TCP/IP, subnetting)
-- Familiarity with Cisco Packet Tracer or GNS3 is helpful, but not required
+- Basic networking knowledge (OSI model, TCP/IP, subnetting).
+- Familiarity with Cisco Packet Tracer or GNS3 is helpful, but not required.
+- Git installed on your pc.
 
 ---
 
@@ -75,17 +76,6 @@ If you encounter hardware issues or need assistance:
 - Email: teamrivan@rvci.org
 - Office Hours: Mon–Fri, 9:00 AM - 4:30 PM
 - Website: [Rivan IT](https://rivanit.com/)
-
----
-
-## 🧠 CCNA Topics Covered
-
-✅ Networking Fundamentals  
-✅ IP Connectivity & Services  
-✅ Security Fundamentals 
-✅ SIP Configurations
-✅ Infrastructure Services (VoIP, Wireless, Cameras)
-
 ---
 
 ## 🏁 Ready to Start?
@@ -93,13 +83,11 @@ If you encounter hardware issues or need assistance:
 Let’s get building. Power on your lab and begin with **Task 1 – Setup & Cable Management** 🚀  
 Stay consistent, stay curious. Rivan Home Labs is here to turn theory into real-world skills.
 
----
-
 ## 🛠️ Task 1 – Setup & Cable Management
 
 Before configuring your devices, ensure all hardware is connected correctly. Refer to the Cabling Instructions PDF for step-by-step guidance on connecting IP Phones, Cameras, and Wireless APs to the appropriate ports. Once everything is set up, power on the devices and proceed with the configuration.
 
-[Setup Guide PDF](Enter.pdf)
+[Basic Setup Guide PDF](Enter.pdf)
 
 ## ⚡ Task 2: Check Power Inline Status
 
@@ -277,4 +265,62 @@ Ephone 1
   restart
 end
 ```
-> If telephone does not recieve number paste it again 
+> If telephone does not recieve number paste it again
+
+## 📱 Task 9 - WIFI Setup using Python
+Automate your wireless access point setup by using a Python script to configure SSID, password, and VLAN tagging through `netmiko`.
+
+On your PC open terminal and try to ping your Access Point (10.28.10.3)
+```bash
+ping 10.28.10.3
+```
+Install netmiko library 
+```bash
+python -m pip install netmiko
+```
+If its connected clone my wifi script using this command 
+```bash
+git clone https://github.com/yyynnot/Take-Home-Lab/tree/main/wifi
+```
+Open it using VS Code and edit `autoAP-jsn.json` Replace hostname, ssid, and wifi-pass.
+After editing run `autowifi-jsn.py` and you can now connect to it using your mobile phone.
+
+## 📱 Task 10 - Cellphone to IP Phone Connection
+Configure SIP settings to enable communication between mobile phones and IP phones.
+> Follow this SIP Guide first
+> [SIP Guide PDF](Enter.pdf)
+```bash
+conf t
+ voice service voip
+  allow-connections h323 to sip
+  allow-connections sip to h323
+  allow-connections sip to sip
+  supplementary-service h450.12
+ sip
+   bind control source-interface fa0/0
+   bind media source-interface fa0/0
+   registrar server expires max 600 min 60
+!
+ voice register global
+  mode cme
+  source-address 10.28.100.1 port 5060
+  max-dn 12
+  max-pool 12
+  authenticate register
+  create profile sync
+ voice register dn 1
+   number 2823
+   allow watch
+   name 2823
+ voice register dn 2
+   number 2824
+   allow watch
+   name 2824
+!
+  voice register pool 1
+    id mac ____.____.____ #enter your mobile phone mac address
+    number 1 dn 1
+    dtmf-relay sip-notify
+    username 2823 password 2823
+    codec g711ulaw
+```
