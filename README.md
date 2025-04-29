@@ -145,6 +145,10 @@ name RIVANVOIP
 end
 show vlan-switch
 ```
+Output: <br>
+![{4BDFCEDC-7687-4E9D-BF20-47B11402F62A}](https://github.com/user-attachments/assets/2f87713b-3373-4746-8546-a0c390f12e6e)
+
+
 ## 🔄 Task 5: LAN/Ethernet Ports to VLAN Assignment
 Assign Ethernet ports to specific VLANs for proper network organization. This includes both data and voice VLANs.
 
@@ -165,6 +169,9 @@ interface FastEthernet0/1/7
 end
 show vlan-switch
 ```
+Output: <br>
+![{A37D31FC-C077-43CB-B2D9-B351CDE2ADC5}](https://github.com/user-attachments/assets/23b1109c-6970-4dd5-ba00-3d11f95373df)
+
 
 ## 🖧 Task 6: Switch VLAN Interface (SVI)
 Create Switch Virtual Interfaces (SVIs) for each VLAN. These interfaces provide routing capability between VLANs.
@@ -189,6 +196,9 @@ Int Vlan 100
 end
 show ip interface brief
 ```
+Output: <br>
+![{E1245459-4A41-4E80-ACD2-EFDA11F5B58D}](https://github.com/user-attachments/assets/1b09e3b5-f5e5-4d2f-9af3-55ba0a1c25ae)
+
 
 ## 🖥️ Task 7: Prepare the DHCP Server
 Set up DHCP pools for different VLANs and configure exclusions for reserved IPs.
@@ -227,11 +237,17 @@ Configure reserved IP addresses for devices like security camera that require st
 ```bash
 sh mac-address-table 
 ```
-> If `FA 0/1/3` not showing try to ping it
+Output:
+![{AA524F57-6646-4947-AC85-D7E5AE8B2C52}](https://github.com/user-attachments/assets/ae11ed75-4eed-4bca-b508-98caa9a5b6a1)
+
+> If `FastEthernet 0/1/3` is not showing try to ping it
 ```bash
 ping 10.28.50.8
 sh mac-address-table 
 ```
+Output:
+![{D21BBD54-0AE4-4535-9195-866EA98FBFFF}](https://github.com/user-attachments/assets/89ed29db-32d0-41e8-a84f-c97223f22be5)
+> `FastEthernet 0/1/3` is now showing copy the mac address
 Copy the mac address of IP Camera on port `FastEthernet 0/1/3` and paste it on client identifier on this code:
 ```bash
 config t
@@ -241,6 +257,9 @@ ip dhcp pool SECURITYCAMERA
  default-router 10.28.50.1
 end
 ```
+Output:
+![{3C89A641-D974-47CA-B976-AF75FEE5443A}](https://github.com/user-attachments/assets/14d22e75-3780-421b-be35-f77989b10c42)
+
 ## ☎️ Task 9: Super Call Center Setup
 Configure telephony service and assign phones in the call center, ensuring each has a unique extension number.
 ```bash
@@ -282,28 +301,10 @@ end
 ```
 > If telephone does not recieve number paste it again
 
-## 📱 Task 10 - WIFI Setup using Python
-Automate your wireless access point setup by using a Python script to configure SSID, password, and VLAN tagging through `netmiko`.
-
-On your PC open terminal and try to ping your Access Point (10.28.10.3)
-```bash
-ping 10.28.10.3
-```
-Install netmiko library 
-```bash
-python -m pip install netmiko
-```
-If its connected clone my wifi script using this command 
-```bash
-git clone https://github.com/yyynnot/Take-Home-Lab.git
-```
-Open it using VS Code and edit `autoAP-jsn.json` Replace hostname, ssid, and wifi-pass.
-After editing run `autowifi-jsn.py` and you can now connect to it using your mobile phone.
-
-## 📱 Task 11 - Cellphone to IP Phone Connection
+## 📱 Task 10 - Cellphone to IP Phone Connection
 Configure SIP settings to enable communication between mobile phones and IP phones.
-> Follow this SIP Guide first
-> [SIP Guide PDF](Enter.pdf)
+> Before proceeding do this first
+> [SIP Guide](Linphone.md)
 ```bash
 conf t
  voice service voip
