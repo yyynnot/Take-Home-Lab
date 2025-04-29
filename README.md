@@ -8,11 +8,16 @@ Welcome to **Rivan Home Labs**, a hands-on learning environment designed to elev
 
 Each student receives a home lab kit containing:
 
-- **Cisco Unified Communications Manager** (Cisco 1800 Series Router)
-- **Cisco IP Phones** (8945 models)
-- **IP Camera**
-- **Wireless Access Point** (Cisco Airnet 2700)
-- All required **Ethernet cables, power adapters**, and **console cables**
+- **Cisco Unified Communications Manager** (Cisco 1800 Series Router)<br>
+  <img src=https://www.cisco.com/c/dam/en/us/support/web/images/series/routers-1800-series-integrated-services-routers-isr-alternate3.jpg width="400"><br>
+- **Cisco IP Phones** (8945 models)<br>
+  <img src=https://www.tonitrus.com/media/image/5e/c0/ab/cp-8945-k9-10106775YthJeGUg0xyOV.jpg width="400"><br>
+- **IP Camera**<br>
+  <img src=https://cdn11.bigcommerce.com/s-zbabt7ht4y/images/stencil/2560w/products/39456/59287/Arecont-AV3455DN-SN__63245.1547989647.jpg width="400"><br>
+- **Wireless Access Point** (Cisco Airnet 2700)<br>
+  <img src=https://c1.neweggimages.com/ProductImage/A389_1_201708031059793619.jpg width="400"><br>
+- All required **Ethernet cables, power adapters**, and **console cables**<br>
+  <img src=https://shayeganco.ir/fa/wp-content/uploads/2021/09/USB-Console-Cable-USB-to-RJ45-Cable-3.jpg width="400"><br>
 
 ---
 
