@@ -142,7 +142,7 @@ name RIVANVOIP
 end
 show vlan-switch
 ```
-## 🔄 Task 3: LAN/Ethernet Ports to VLAN Assignment
+## 🔄 Task 4: LAN/Ethernet Ports to VLAN Assignment
 Assign Ethernet ports to specific VLANs for proper network organization. This includes both data and voice VLANs.
 
 ```bash
@@ -162,3 +162,119 @@ interface FastEthernet0/1/7
 end
 show vlan-switch
 ```
+
+## 🖧 Task 5: Switch VLAN Interface (SVI)
+Create Switch Virtual Interfaces (SVIs) for each VLAN. These interfaces provide routing capability between VLANs.
+```bash
+config t
+Int Vlan 1
+ no shutdown
+ ip add 10.28.1.1 255.255.255.0
+ description DEFAULT
+Int Vlan 10
+ no shutdown
+ ip add 10.28.10.1 255.255.255.0
+ description RIVANWIRELESS
+Int Vlan 50
+ no shutdown
+ ip add 10.28.50.1 255.255.255.0
+ description RIVANCAMS
+Int Vlan 100
+ no shutdown
+ ip add 10.28.100.1 255.255.255.0
+ description RIVANVOIP
+end
+show ip interface brief
+```
+
+## 🖥️ Task 6: Prepare the DHCP Server
+Set up DHCP pools for different VLANs and configure exclusions for reserved IPs.
+```bash
+config t
+ip dhcp Excluded-address 10.28.1.1 10.28.1.100
+ip dhcp Excluded-address 10.28.10.1 10.28.10.100
+ip dhcp Excluded-address 10.28.50.1 10.28.50.100
+ip dhcp Excluded-address 10.28.100.1 10.28.100.100
+ip dhcp pool DEFAULT
+   network 10.28.1.0 255.255.255.0
+   default-router 10.28.1.1
+   domain-name DEFAULT.COM
+   dns-server 10.28.1.10
+ip dhcp pool RIVANWIFI
+   network 10.28.10.0 255.255.255.0
+   default-router 10.28.10.1
+   domain-name RIVANWIFI.COM
+   dns-server 10.28.1.10
+ip dhcp pool RIVANCAMS
+   network 10.28.50.0 255.255.255.0
+   default-router 10.28.50.1
+   domain-name RIVANCAMS.COM
+   dns-server 10.28.1.10
+ip dhcp pool RIVANVOIP
+   network 10.28.100.0 255.255.255.0
+   default-router 10.28.100.1
+   domain-name RIVANVOIP.COM
+   dns-server 10.28.1.10
+   option 150 ip 10.28.100.1
+   end
+```
+
+## 🎥 Task 7: IP Camera Reserved IP
+Configure reserved IP addresses for devices like security camera that require static IPs.
+```bash
+sh mac-address-table 
+```
+> If `FA 0/1/3` not showing try to ping it
+```bash
+ping 10.28.50.8
+sh mac-address-table 
+```
+Copy the mac address of IP Camera on port `FastEthernet 0/1/3` and paste it on client identifier on this code:
+```bash
+config t
+ip dhcp pool SECURITYCAMERA
+ host 10.28.50.8 255.255.255.0
+ client-identifier ____.____.____ #change to mac address of IP Camera (FastEthernet 0/1/3)
+ default-router 10.28.50.1
+end
+```
+## ☎️ Task 7: Super Call Center Setup
+Configure telephony service and assign phones in the call center, ensuring each has a unique extension number.
+```bash
+config t   
+no telephony-service
+telephony-service
+   no auto assign
+   no auto-reg-ephone
+   max-ephones 5
+   max-dn 20
+   ip source-address 10.28.100.1 port 2000
+   create cnf-files
+ephone-dn 1
+  number 2811
+ephone-dn 2
+  number 2822
+ephone-dn 3
+  number 2833
+ephone-dn 4
+  number 2844
+ephone-dn 5
+  number 2855
+ephone-dn 6
+  number 2866
+ephone-dn 7
+  number 2877
+ephone-dn 8
+  number 2888
+ ephone-dn 9
+   number 2899
+ephone-dn 10
+ number 2898
+Ephone 1
+  Mac-address ____.____.____ #change to mac address of IP Phone (FastEthernet 0/1/1)
+  type 8945
+  button 1:8 2:7 3:6 4:5
+  restart
+end
+```
+> If telephone does not recieve number paste it again 
