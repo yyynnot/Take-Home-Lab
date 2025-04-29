@@ -62,15 +62,16 @@ By completing the Rivan Home Labs course, students will:
 ---
 ## 📑 Table of Contents
 - [🛠️ Task 1 – Setup & Cable Management](#️-task-1--setup--cable-management)  
-- [⚡ Task 2 – Check Power Inline Status](#-task-2-check-power-inline-status)  
-- [🌐 Task 3 – VLAN Checking and Configuration](#-task-3-vlan-checking-and-configuration)  
-- [🔄 Task 4 – LAN/Ethernet Ports to VLAN Assignment](#-task-4-lanethernet-ports-to-vlan-assignment)  
-- [🖧 Task 5 – Switch VLAN Interface (SVI)](#-task-5-switch-vlan-interface-svi)  
-- [🖥️ Task 6 – Prepare the DHCP Server](#️-task-6-prepare-the-dhcp-server)  
-- [🎥 Task 7 – IP Camera Reserved IP](#-task-7-ip-camera-reserved-ip)  
-- [☎️ Task 8 – Super Call Center Setup](#-task-8-super-call-center-setup)  
-- [📱 Task 9 – WiFi Setup using Python](#-task-9---wifi-setup-using-python)  
-- [📞 Task 10 – Cellphone to IP Phone Connection](#-task-10---cellphone-to-ip-phone-connection)
+- [🔧 Task 2: Access console using SecureCRT](#-task-2--access-console-using-securecrt)  
+- [⚡ Task 3 – Check Power Inline Status](#-task-2-check-power-inline-status)  
+- [🌐 Task 4 – VLAN Checking and Configuration](#-task-3-vlan-checking-and-configuration)  
+- [🔄 Task 5 – LAN/Ethernet Ports to VLAN Assignment](#-task-4-lanethernet-ports-to-vlan-assignment)  
+- [🖧 Task 6 – Switch VLAN Interface (SVI)](#-task-5-switch-vlan-interface-svi)  
+- [🖥️ Task 7 – Prepare the DHCP Server](#️-task-6-prepare-the-dhcp-server)  
+- [🎥 Task 8 – IP Camera Reserved IP](#-task-7-ip-camera-reserved-ip)  
+- [☎️ Task 9 – Super Call Center Setup](#-task-8-super-call-center-setup)  
+- [📱 Task 10 – WiFi Setup using Python](#-task-9---wifi-setup-using-python)  
+- [📞 Task 11 – Cellphone to IP Phone Connection](#-task-10---cellphone-to-ip-phone-connection)
 
 ---
 
@@ -85,7 +86,15 @@ Before configuring your devices, ensure all hardware is connected correctly. Ref
 
 [Basic Setup Guide PDF](Enter.pdf)
 
-## ⚡ Task 2: Check Power Inline Status
+## 🔧 Task 2: Access console using SecureCRT
+Open SecureCRT and click the quick connect button 
+![{1E3424F6-F144-4CF8-AE66-551B83A34FBE}](https://github.com/user-attachments/assets/b9db7d7d-1623-4759-b294-cb7664901495)
+Select `Serial` as Protocol
+![image](https://github.com/user-attachments/assets/64ec6f89-c5af-462a-a041-e8106efa2cfe)
+For Port select the `USB-SERIAL` and `9600` Baud rate
+![image](https://github.com/user-attachments/assets/8813ba8d-b855-46e1-b7c8-7121ee029112)
+
+## ⚡ Task 3: Check Power Inline Status
 
 Use the `show power inline` command to check the power status of each port. This is important for verifying that devices like IP phones and cameras are receiving Power over Ethernet (PoE).
 
@@ -109,7 +118,7 @@ Fa0/1/5     auto     IEEE-4   On         15.400 Watts
 Fa0/1/6     auto     Unknown  Off        0.000 Watts  
 Fa0/1/7     auto     Unknown  Off        0.000 Watts
 ```
-## 🌐 Task 3: VLAN Checking and Configuration
+## 🌐 Task 4: VLAN Checking and Configuration
 
 Set up VLANs to segment the network. Use the 'show vlan-switch' commands to verify VLANs. Create at least 4 VLANs for different network sections.
 
@@ -126,7 +135,7 @@ name RIVANVOIP
 end
 show vlan-switch
 ```
-## 🔄 Task 4: LAN/Ethernet Ports to VLAN Assignment
+## 🔄 Task 5: LAN/Ethernet Ports to VLAN Assignment
 Assign Ethernet ports to specific VLANs for proper network organization. This includes both data and voice VLANs.
 
 ```bash
@@ -147,7 +156,7 @@ end
 show vlan-switch
 ```
 
-## 🖧 Task 5: Switch VLAN Interface (SVI)
+## 🖧 Task 6: Switch VLAN Interface (SVI)
 Create Switch Virtual Interfaces (SVIs) for each VLAN. These interfaces provide routing capability between VLANs.
 ```bash
 config t
@@ -171,7 +180,7 @@ end
 show ip interface brief
 ```
 
-## 🖥️ Task 6: Prepare the DHCP Server
+## 🖥️ Task 7: Prepare the DHCP Server
 Set up DHCP pools for different VLANs and configure exclusions for reserved IPs.
 ```bash
 config t
@@ -203,7 +212,7 @@ ip dhcp pool RIVANVOIP
    end
 ```
 
-## 🎥 Task 7: IP Camera Reserved IP
+## 🎥 Task 8: IP Camera Reserved IP
 Configure reserved IP addresses for devices like security camera that require static IPs.
 ```bash
 sh mac-address-table 
@@ -222,7 +231,7 @@ ip dhcp pool SECURITYCAMERA
  default-router 10.28.50.1
 end
 ```
-## ☎️ Task 8: Super Call Center Setup
+## ☎️ Task 9: Super Call Center Setup
 Configure telephony service and assign phones in the call center, ensuring each has a unique extension number.
 ```bash
 config t   
@@ -263,7 +272,7 @@ end
 ```
 > If telephone does not recieve number paste it again
 
-## 📱 Task 9 - WIFI Setup using Python
+## 📱 Task 10 - WIFI Setup using Python
 Automate your wireless access point setup by using a Python script to configure SSID, password, and VLAN tagging through `netmiko`.
 
 On your PC open terminal and try to ping your Access Point (10.28.10.3)
@@ -281,7 +290,7 @@ git clone https://github.com/yyynnot/Take-Home-Lab.git
 Open it using VS Code and edit `autoAP-jsn.json` Replace hostname, ssid, and wifi-pass.
 After editing run `autowifi-jsn.py` and you can now connect to it using your mobile phone.
 
-## 📱 Task 10 - Cellphone to IP Phone Connection
+## 📱 Task 11 - Cellphone to IP Phone Connection
 Configure SIP settings to enable communication between mobile phones and IP phones.
 > Follow this SIP Guide first
 > [SIP Guide PDF](Enter.pdf)
