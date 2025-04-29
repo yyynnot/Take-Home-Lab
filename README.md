@@ -66,15 +66,15 @@ By completing the Rivan Home Labs course, students will:
 
 ---
 ## 📑 Table of Contents
-- [🛠️ Task 1 – Setup & Cable Management](#️-task-1--setup--cable-management)  
-- [🔧 Task 2: Access console using SecureCRT](#-task-2--access-console-using-securecrt)  
+- [🛠️ Task 1 – Setup & Cable Management](#️-task-1-setup--cable-management)  
+- [🔧 Task 2: Access console using SecureCRT](#-task-2-access-console-using-securecrt)  
 - [⚡ Task 3 – Check Power Inline Status](#-task-3-check-power-inline-status)  
 - [🌐 Task 4 – VLAN Checking and Configuration](#-task-4-vlan-checking-and-configuration)  
 - [🔄 Task 5 – LAN/Ethernet Ports to VLAN Assignment](#-task-5-lanethernet-ports-to-vlan-assignment)  
 - [🖧 Task 6 – Switch VLAN Interface (SVI)](#-task-6-switch-vlan-interface-svi)  
 - [🖥️ Task 7 – Prepare the DHCP Server](#️-task-7-prepare-the-dhcp-server)  
 - [🎥 Task 8 – IP Camera Reserved IP](#-task-8-ip-camera-reserved-ip)  
-- [☎️ Task 9 – Super Call Center Setup](#-task-9-super-call-center-setup)  
+- [☎️ Task 9 – Super Call Center Setup](#-task-9--super-call-center-setup)
 - [📞 Task 10 – Cellphone to IP Phone Connection](#-task-10---cellphone-to-ip-phone-connection)
 
 ---
@@ -84,7 +84,7 @@ By completing the Rivan Home Labs course, students will:
 Let’s get building. Power on your lab and begin with **Task 1 – Setup & Cable Management** 🚀  
 Stay consistent, stay curious. Rivan Home Labs is here to turn theory into real-world skills.
 
-## 🛠️ Task 1 – Setup & Cable Management
+## 🛠️ Task 1: Setup & Cable Management
 
 Before configuring your devices, ensure all hardware is connected correctly. Refer to the Cabling Instructions PDF for step-by-step guidance on connecting IP Phones, Cameras, and Wireless APs to the appropriate ports. Once everything is set up, power on the devices and proceed with the configuration.
 
