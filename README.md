@@ -68,15 +68,14 @@ By completing the Rivan Home Labs course, students will:
 ## 📑 Table of Contents
 - [🛠️ Task 1 – Setup & Cable Management](#️-task-1--setup--cable-management)  
 - [🔧 Task 2: Access console using SecureCRT](#-task-2--access-console-using-securecrt)  
-- [⚡ Task 3 – Check Power Inline Status](#-task-2-check-power-inline-status)  
-- [🌐 Task 4 – VLAN Checking and Configuration](#-task-3-vlan-checking-and-configuration)  
-- [🔄 Task 5 – LAN/Ethernet Ports to VLAN Assignment](#-task-4-lanethernet-ports-to-vlan-assignment)  
-- [🖧 Task 6 – Switch VLAN Interface (SVI)](#-task-5-switch-vlan-interface-svi)  
-- [🖥️ Task 7 – Prepare the DHCP Server](#️-task-6-prepare-the-dhcp-server)  
-- [🎥 Task 8 – IP Camera Reserved IP](#-task-7-ip-camera-reserved-ip)  
-- [☎️ Task 9 – Super Call Center Setup](#-task-8-super-call-center-setup)  
-- [📱 Task 10 – WiFi Setup using Python](#-task-9---wifi-setup-using-python)  
-- [📞 Task 11 – Cellphone to IP Phone Connection](#-task-10---cellphone-to-ip-phone-connection)
+- [⚡ Task 3 – Check Power Inline Status](#-task-3-check-power-inline-status)  
+- [🌐 Task 4 – VLAN Checking and Configuration](#-task-4-vlan-checking-and-configuration)  
+- [🔄 Task 5 – LAN/Ethernet Ports to VLAN Assignment](#-task-5-lanethernet-ports-to-vlan-assignment)  
+- [🖧 Task 6 – Switch VLAN Interface (SVI)](#-task-6-switch-vlan-interface-svi)  
+- [🖥️ Task 7 – Prepare the DHCP Server](#️-task-7-prepare-the-dhcp-server)  
+- [🎥 Task 8 – IP Camera Reserved IP](#-task-8-ip-camera-reserved-ip)  
+- [☎️ Task 9 – Super Call Center Setup](#-task-9-super-call-center-setup)  
+- [📞 Task 10 – Cellphone to IP Phone Connection](#-task-10---cellphone-to-ip-phone-connection)
 
 ---
 
@@ -237,7 +236,7 @@ Configure reserved IP addresses for devices like security camera that require st
 ```bash
 sh mac-address-table 
 ```
-Output:
+Output:<br>
 ![{AA524F57-6646-4947-AC85-D7E5AE8B2C52}](https://github.com/user-attachments/assets/ae11ed75-4eed-4bca-b508-98caa9a5b6a1)
 
 > If `FastEthernet 0/1/3` is not showing try to ping it
@@ -245,9 +244,10 @@ Output:
 ping 10.28.50.8
 sh mac-address-table 
 ```
-Output:
+Output:<br>
 ![{D21BBD54-0AE4-4535-9195-866EA98FBFFF}](https://github.com/user-attachments/assets/89ed29db-32d0-41e8-a84f-c97223f22be5)
 > `FastEthernet 0/1/3` is now showing copy the mac address
+
 Copy the mac address of IP Camera on port `FastEthernet 0/1/3` and paste it on client identifier on this code:
 ```bash
 config t
@@ -257,7 +257,7 @@ ip dhcp pool SECURITYCAMERA
  default-router 10.28.50.1
 end
 ```
-Output:
+Output:<br>
 ![{3C89A641-D974-47CA-B976-AF75FEE5443A}](https://github.com/user-attachments/assets/14d22e75-3780-421b-be35-f77989b10c42)
 
 ## ☎️ Task 9: Super Call Center Setup
@@ -299,7 +299,7 @@ Ephone 1
   restart
 end
 ```
-> If telephone does not recieve number paste it again
+> If its still not working Go to `Settings > Administrator Settings > Reset Settings > All Settings > Reset` then paste the command again
 
 ## 📱 Task 10 - Cellphone to IP Phone Connection
 Configure SIP settings to enable communication between mobile phones and IP phones.
