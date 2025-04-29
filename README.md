@@ -73,8 +73,8 @@ By completing the Rivan Home Labs course, students will:
 - [🔄 Task 5 – LAN/Ethernet Ports to VLAN Assignment](#-task-5-lanethernet-ports-to-vlan-assignment)  
 - [🖧 Task 6 – Switch VLAN Interface (SVI)](#-task-6-switch-vlan-interface-svi)  
 - [🖥️ Task 7 – Prepare the DHCP Server](#️-task-7-prepare-the-dhcp-server)  
-- [🎥 Task 8 – IP Camera Reserved IP](#-task-8-ip-camera-reserved-ip)  
-- [☎️ Task 9 – Super Call Center Setup](#-task-9--super-call-center-setup)
+- [🎥 Task 8 – IP Camera Reserved IP](#-task-8-ip-camera-reserved-ip)
+- [☎️ Task 9: Super Call Center Setup](#️-task-9-super-call-center-setup) 
 - [📞 Task 10 – Cellphone to IP Phone Connection](#-task-10---cellphone-to-ip-phone-connection)
 
 ---
