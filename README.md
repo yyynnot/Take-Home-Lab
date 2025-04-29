@@ -53,10 +53,9 @@ By completing the Rivan Home Labs course, students will:
 
 ## 🔧 Lab Environment Setup
 
-1. **Connect the hardware**: Refer to the printed setup guide included in your kit or view the digital [Setup Guide PDF](#).
+1. **Connect the hardware**: Refer to the printed setup guide included in your kit or view the digital [Setup Guide PDF](Enter.pdf).
 2. **Access router CLI** via console cable using:
-   - PuTTY (Windows)
-   - Terminal + `screen` or `minicom` (macOS/Linux)
+   - PuTTY(Free) or SecureCRT(License)
 3. **Power on all devices**, verify LED indicators, and begin configuration.
 
 ---
@@ -66,7 +65,6 @@ By completing the Rivan Home Labs course, students will:
 - Keep your devices labeled and workspace organized.
 - Practice configurations multiple times.
 - Take screenshots or notes as you work – they’ll help during troubleshooting.
-- Join our [Discord](#) or [Student Forum](#) for help and collaboration.
 
 ---
 
@@ -74,9 +72,9 @@ By completing the Rivan Home Labs course, students will:
 
 If you encounter hardware issues or need assistance:
 
-- Email: **support@rivantechlabs.com**
-- Office Hours: Mon–Fri, 10:00–18:00 GMT
-- Community Help: [GitHub Discussions](#) | [Rivan Discord](#)
+- Email: teamrivan@rvci.org
+- Office Hours: Mon–Fri, 9:00 AM - 4:30 PM
+- Website: [Rivan IT](https://rivanit.com/)
 
 ---
 
@@ -84,23 +82,83 @@ If you encounter hardware issues or need assistance:
 
 ✅ Networking Fundamentals  
 ✅ IP Connectivity & Services  
-✅ Security Fundamentals  
-✅ Automation and Programmability  
+✅ Security Fundamentals 
+✅ SIP Configurations
 ✅ Infrastructure Services (VoIP, Wireless, Cameras)
-
----
-
-## 🔗 Related Resources
-
-- [Cisco CCNA Official Cert Guide](https://www.cisco.com/)
-- [Cisco Packet Tracer Simulator](https://www.netacad.com/courses/packet-tracer)
-- [CUCM Setup Docs](https://www.cisco.com/c/en/us/support/unified-communications/unified-communications-manager-callmanager/tsd-products-support-series-home.html)
 
 ---
 
 ## 🏁 Ready to Start?
 
-Let’s get building. Power on your lab and begin with **Module 1 – Setup & Cable Management** 🚀  
+Let’s get building. Power on your lab and begin with **Task 1 – Setup & Cable Management** 🚀  
 Stay consistent, stay curious. Rivan Home Labs is here to turn theory into real-world skills.
 
 ---
+
+## 🛠️ Task 1 – Setup & Cable Management
+
+Before configuring your devices, ensure all hardware is connected correctly. Refer to the Cabling Instructions PDF for step-by-step guidance on connecting IP Phones, Cameras, and Wireless APs to the appropriate ports. Once everything is set up, power on the devices and proceed with the configuration.
+
+[Setup Guide PDF](Enter.pdf)
+
+## ⚡ Task 2: Check Power Inline Status
+
+Use the `show power inline` command to check the power status of each port. This is important for verifying that devices like IP phones and cameras are receiving Power over Ethernet (PoE).
+
+
+### Example Output:
+
+```bash
+CallCenter-28#show power inline
+PowerSupply   SlotNum.   Maximum   Allocated       Status
+-----------   --------   -------   ---------       ------
+INT-PS           0        88.000    28.800          PS GOOD
+
+Interface   Config   Device   Powered    PowerAllocated
+---------   ------   ------   -------    --------------
+Fa0/1/0     auto     Unknown  Off        0.000 Watts  
+Fa0/1/1     auto     IEEE-2   On         7.000 Watts  
+Fa0/1/2     auto     Unknown  Off        0.000 Watts  
+Fa0/1/3     auto     IEEE-2   On         6.400 Watts  
+Fa0/1/4     auto     Unknown  Off        0.000 Watts  
+Fa0/1/5     auto     IEEE-4   On         15.400 Watts  
+Fa0/1/6     auto     Unknown  Off        0.000 Watts  
+Fa0/1/7     auto     Unknown  Off        0.000 Watts
+```
+## 🌐 Task 3: VLAN Checking and Configuration
+
+Set up VLANs to segment the network. Use the 'show vlan-switch' commands to verify VLANs. Create at least 4 VLANs for different network sections.
+
+```bash
+config t
+vlan 1
+name default
+vlan 10
+name RIVANWIFI
+vlan 50
+name RIVANVIDEO
+vlan 100
+name RIVANVOIP
+end
+show vlan-switch
+```
+## 🔄 Task 3: LAN/Ethernet Ports to VLAN Assignment
+Assign Ethernet ports to specific VLANs for proper network organization. This includes both data and voice VLANs.
+
+```bash
+config t
+interface FastEthernet0/1/1 
+ switchport mode access
+ switchport voice vlan 100
+interface FastEthernet0/1/3 
+ switchport mode access
+ switchport access vlan 50
+interface FastEthernet0/1/5 
+ switchport mode access
+ switchport access vlan 10
+interface FastEthernet0/1/7 
+ switchport mode access
+ switchport access vlan 1
+end
+show vlan-switch
+```
