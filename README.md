@@ -94,12 +94,12 @@ Before configuring your devices, ensure all hardware is connected correctly. Ref
 ## 🔧 Task 2: Access console using SecureCRT
 Open SecureCRT and click the quick connect button 
 <br><br>
-![{1E3424F6-F144-4CF8-AE66-551B83A34FBE}](https://github.com/user-attachments/assets/b9db7d7d-1623-4759-b294-cb7664901495)
-<br><br>
+<img src=https://github.com/user-attachments/assets/b9db7d7d-1623-4759-b294-cb7664901495 width="400">
+<br>
 Select `Serial` as Protocol
 <br><br>
-![image](https://github.com/user-attachments/assets/64ec6f89-c5af-462a-a041-e8106efa2cfe)
-<br><br>
+<img src=https://github.com/user-attachments/assets/64ec6f89-c5af-462a-a041-e8106efa2cfe width="400">
+<br>
 For Port select the `USB-SERIAL` and `9600` Baud rate
 <br><br>
 ![image](https://github.com/user-attachments/assets/8813ba8d-b855-46e1-b7c8-7121ee029112)
