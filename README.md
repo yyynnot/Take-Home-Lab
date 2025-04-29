@@ -276,7 +276,7 @@ python -m pip install netmiko
 ```
 If its connected clone my wifi script using this command 
 ```bash
-git clone https://github.com/yyynnot/Take-Home-Lab/tree/main/wifi
+git clone https://github.com/yyynnot/Take-Home-Lab.git
 ```
 Open it using VS Code and edit `autoAP-jsn.json` Replace hostname, ssid, and wifi-pass.
 After editing run `autowifi-jsn.py` and you can now connect to it using your mobile phone.
