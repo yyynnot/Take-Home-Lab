@@ -9,16 +9,19 @@ Welcome to **Rivan Home Labs**, a hands-on learning environment designed to elev
 Each student receives a home lab kit containing:
 
 - **Cisco Unified Communications Manager** (Cisco 1800 Series Router)<br>
-  <img src=https://www.cisco.com/c/dam/en/us/support/web/images/series/routers-1800-series-integrated-services-routers-isr-alternate3.jpg width="400"><br>
+  <img src=https://github.com/user-attachments/assets/3bee32cb-1190-499d-8b40-c9996ee4ab62 width="400"><br>
 - **Cisco IP Phones** (8945 models)<br>
-  <img src=https://www.tonitrus.com/media/image/5e/c0/ab/cp-8945-k9-10106775YthJeGUg0xyOV.jpg width="400"><br>
+  <img src=https://github.com/user-attachments/assets/86502828-cd0f-484c-916d-636870ab9a11 width="400"><br>
 - **IP Camera**<br>
-  <img src=https://cdn11.bigcommerce.com/s-zbabt7ht4y/images/stencil/2560w/products/39456/59287/Arecont-AV3455DN-SN__63245.1547989647.jpg width="400"><br>
+  <img src=https://github.com/user-attachments/assets/69434466-979c-4488-8c11-e1983d3d108b width="400"><br>
 - **Wireless Access Point** (Cisco Airnet 2700)<br>
-  <img src=https://c1.neweggimages.com/ProductImage/A389_1_201708031059793619.jpg width="400"><br>
-- All required **Ethernet cables, power adapters**, and **console cables**<br>
-  <img src=https://shayeganco.ir/fa/wp-content/uploads/2021/09/USB-Console-Cable-USB-to-RJ45-Cable-3.jpg width="400"><br>
-
+  <img src=https://github.com/user-attachments/assets/58fbc216-ae27-401b-891d-1239e80b4a95 width="400"><br>
+- **Ethernet cables**<br>
+  <img src=https://github.com/user-attachments/assets/4f45d0d8-6544-4692-a042-7e89f30f1350 width="400"><br>
+- **Console cables** <br>
+  <img src=https://github.com/user-attachments/assets/d130f8b7-338d-462f-86c1-c9cf659e95d7 width="400"><br>
+- **220W AC Router Power Adapter** <br>
+  <img src=https://github.com/user-attachments/assets/85747e09-eb77-4a48-81ba-b98f9bb9ea1c width="400"><br>
 ---
 
 ## 🎯 Course Goals
