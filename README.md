@@ -59,17 +59,17 @@ By completing the Rivan Home Labs course, students will:
 
 ## 🔧 Lab Environment Setup
 
-1. **Connect the hardware**: Refer to the printed basic setup guide included in you [Basic Setup](https://github.com/yyynnot/Take-Home-Lab/wiki/Basic-Setup).
+1. **Connect the hardware**: Refer to the printed basic setup guide included in you [Basic Setup](https://github.com/yyynnot/Take-Home-Lab/wiki/Basic-Setup)
 2. **Access router CLI** via console cable using:
    - SecureCRT(Recommended)
-   - PuTTY(Free) or 
+   - PuTTY(Free)
 3. **Power on all devices**, verify LED indicators, and begin configuration.
 
 ---
 
 ## 🏁 Ready to Start?
 
-Let’s get building. Power on your lab and begin with **[Task 1 – Setup & Cable Management](https://github.com/yyynnot/Take-Home-Lab/wiki)** 🚀  
+Let’s get building. Power on your lab and begin with **[Task 1 – Setup & Cable Management](https://github.com/yyynnot/Take-Home-Lab/wiki)**   
 Stay consistent, stay curious. Rivan Home Labs is here to turn theory into real-world skills.
 
 ---
