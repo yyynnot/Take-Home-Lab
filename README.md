@@ -3,6 +3,7 @@
 Welcome to **Rivan Home Labs**, a hands-on learning environment designed to elevate your Cisco networking skills. This course provides each student with real physical equipment, including routers, IP phones, wireless access points, and cameras — the ultimate toolkit for mastering the **Cisco Certified Network Associate (CCNA)**.
 
 ---
+[![GitHub Stars](https://img.shields.io/github/stars/yyynnot/Take-Home-Lab.svg?style=social)](https://github.com/yyynnot/Take-Home-Lab/stargazers)
 
 ## 📦 Equipment Provided
 
@@ -95,6 +96,6 @@ If you encounter hardware issues or need assistance:
 
 ---
 
-[![GitHub Stars](https://img.shields.io/github/stars/yyynnot/Take-Home-Lab.svg?style=social)](https://github.com/yyynnot/Take-Home-Lab/stargazers)
+
 
 
